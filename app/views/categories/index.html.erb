@@ -1,0 +1,9 @@
+<h1>All Job Categories</h1>
+<h4><%= link_to "Create a New Category", new_category_path %></h4>
+<% @categories.each do |category| %>
+<div class=category_<%= category.id %>>
+  <%= link_to category.title, category_path(category) %>
+  <%= button_to "Edit", edit_category_path(category), method: "get" %>
+  <%= button_to "Delete", category_path(category), method: "delete" %><br />
+</div>
+<% end %>
