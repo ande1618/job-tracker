@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User edits an existing job" do
   scenario "a user can edit a job" do
+    category = Category.create!(title: "IT")
     company = Company.create!(name: "ESPN")
     job = company.jobs.create!(title: "Developer", level_of_interest: 70, city: "Denver")
 

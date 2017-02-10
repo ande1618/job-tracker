@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   end
 
   def new
+    @categories = Category.all.order(:title)
     @company = Company.find(params[:company_id])
     @job = Job.new()
   end
@@ -25,6 +26,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.order(:title)
     @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
   end
@@ -48,6 +50,6 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
 end

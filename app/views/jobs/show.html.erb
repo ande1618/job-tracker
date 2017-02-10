@@ -1,5 +1,8 @@
 <h1><%= @job.title %> at <%= @job.company.name %></h1><br />
 
+Category: <%= @job.category.title %>
+<br>
+
 Title: <%= @job.title %>
 <br>
 
@@ -11,7 +14,7 @@ Level of Interest: <%= @job.level_of_interest %>
 
 City: <%= @job.city %>
 <br>
-<%= button_to "Edit Job", edit_company_job_path %>
+<%= button_to "Edit Job", edit_company_job_path, method: "get" %>
 <%= button_to "Delete Job", company_job_path, method: "delete" %><br />
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %><br />
