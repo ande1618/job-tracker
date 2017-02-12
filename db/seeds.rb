@@ -6,22 +6,15 @@ JOBS = ["Engineering", "Development", "Dev Ops", "Quality Assurance", "Teacher",
 CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando", "San Diego", "Austin", "Las Vegas", "Little Rock", "Boise", "Eugene", "Oakland"]
 CATEGORIES = ["Tech", "Education", "Mundane"]
 
-CATEGORIES.each do |title|
-  @categories = []
-  @categories << Category.create!(title: title)
+CATEGORIES.each do |category|
+  category = Category.create!(title: category)
 end
 
 COMPANIES.each do |name|
   company = Company.create!(name: name)
   puts "Created #{company.name}"
   10.times do |num|
-    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(100), city: CITIES.sample) #category: @categories.sample)
+    company.jobs.create!(title: JOBS.sample, description: "What a great position!", level_of_interest: num + rand(100), city: CITIES.sample, category: Category.all.sample(1)[0])
     puts "  Created #{company.jobs[num].title}"
-  end
-
-@jobs = Job.all
-
-  @jobs.each do |job|
-    job.update(category: @categories.sample)
   end
 end
