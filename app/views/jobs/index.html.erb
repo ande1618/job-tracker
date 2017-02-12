@@ -6,5 +6,5 @@ All Jobs for <strong><%= @company.name %></strong><br />
   <%= button_to "Delete", company_job_path(@company, job), method: "delete" %></ul>
 
 <% end %><br />
-
+<%= link_to "View Contacts at #{@company.name}", company_contacts_path(@company) %><br /><br />
 <%= link_to "Back to Company Directory", companies_path %>
