@@ -20,7 +20,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    # @company = Company.find(params[:id])
     @category = Category.find(params[:id])
+    @jobs = Job.where(category: @category)
+    # byebug
+    # @jobs = Job.where(Category.find(params[:id]))
   end
 
   def edit

@@ -31,7 +31,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
-  def update
+ def update
     @job = Job.find(params[:id])
       if @job.update_attributes(job_params)
         redirect_to company_job_path

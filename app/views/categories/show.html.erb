@@ -1,5 +1,8 @@
 <h2><%= @category.title %> jobs</h2><br />
 
-show each job here<br />
+<% @jobs.each do |job| %>
+<%= link_to job.title, company_job_path(:company_id, job) %><br />
+<% end %>
+
 
 <%= link_to "Back to Categories List", categories_path %>
