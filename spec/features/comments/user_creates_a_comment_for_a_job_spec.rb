@@ -11,10 +11,10 @@ require 'rails_helper'
       fill_in "comment[author_name]", with: "John"
       fill_in "comment[body]", with: "Contacted Janice in HR"
 
-      click_button "Create"
+      click_button "Submit"
 
       expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
-      expect(page).to have_content("John")
+      expect(page).to have_content("Comment by John")
       expect(page).to have_content("Contacted Janice in HR")
 
     end

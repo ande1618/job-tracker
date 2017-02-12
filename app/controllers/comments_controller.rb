@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.save
         # flash[:success] = "You created a comment for #{@job.title}"
     # redirect_to company_job_path(company, job)
-    redirect_to company_job_path(@comment.job)
+    redirect_to company_job_path(@comment.job.company, @comment.job)
     end
 
     # def show
