@@ -1,0 +1,12 @@
+<h1>Jobs Dashboard</h1>
+
+
+<h4>Jobs by location</h4>
+<% @jobs.count_by_city.each do |city, count| %>
+  <%= "#{city} has #{count} jobs" %><br />
+<% end %>
+
+<h4>Jobs by level_of_interest</h4>
+<%= @jobs.jobs_by_interest.each do |job| %>
+<%= job.title %>
+<% end %>

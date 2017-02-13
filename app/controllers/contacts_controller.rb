@@ -14,6 +14,29 @@ class ContactsController < ApplicationController
     redirect_to company_contacts_path(@contact.company)
   end
 
+  def edit
+    @company = Company.find(params[:company_id])
+    @contact = Contact.find(params[:id])
+  end
+
+  def update
+    @contact = Contact.find(params[:id])
+    @contact.update(contact_params)
+      if @contact.save
+        flash[:success] = "#{@contact.name} updated!"
+        redirect_to company_contacts_path(@contact.company)
+      else
+        render :edit
+      end
+  end
+
+  def destroy
+    @contact = Contact.find(params[:id])
+    @contact.destroy
+    flash[:success] = "#{@contact.name} was successfully deleted!"
+    redirect_to company_contacts_path(@contact.company)
+  end
+
   private
 
   def contact_params

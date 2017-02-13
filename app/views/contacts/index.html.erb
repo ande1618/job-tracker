@@ -1,13 +1,14 @@
 <h2>Contacts at <%= @company.name %></h2>
 
 <% @contacts.each do |contact| %>
+<div class=contact_<%= contact.id %>>
   <p>Name: <%= contact.name %></p>
   <p>Position: <%= contact.position %></p>
   <p>Email: <%= contact.email %></p>
-  <%#= button_to "Edit", edit_company_contact_path(@company, @contact), method: "get" %>
-  <%#= button_to "Delete", company_contact_path(@company, @contact), method: "delete" %><br />
-  <!-- job_comment_path(@job, comment.id) -->
+  <%= button_to "Edit", edit_company_contact_path(@company, contact), method: "get" %>
+  <%= button_to "Delete", company_contact_path(@company, contact), method: "delete" %><br />
 <% end %>
+</div>
 
 <h4>Add a Contact:</h4>
 <%= render partial: 'form' %>
