@@ -1,0 +1,10 @@
+All Jobs for <strong><%= @company.name %></strong><br />
+<%= link_to "Add a Job", new_company_job_path %>
+
+<% @jobs.each do |job| %>
+  <ul><%= link_to job.title, company_job_path(@company, job) %> at <%= job.company.name %>
+  <%= button_to "Delete", company_job_path(@company, job), method: "delete" %></ul>
+
+<% end %><br />
+<%= link_to "View Contacts at #{@company.name}", company_contacts_path(@company) %><br /><br />
+<%= link_to "Back to Company Directory", companies_path %>

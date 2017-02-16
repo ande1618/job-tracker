@@ -7,6 +7,9 @@
 <% end %>
 
 <h4>Jobs by level_of_interest</h4>
-<%= @jobs.jobs_by_interest.each do |job| %>
-<%= job.title %>
+<% @jobs.jobs_by_interest.each do |level, count| %>
+<%= "#{count} job(s) with a #{level} level of interest" %><br />
 <% end %>
+
+<h4>Companies with the highest level of interest</h4>
+<% @companies.average_level_of_interest %>

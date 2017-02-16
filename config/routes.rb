@@ -2,16 +2,17 @@ Rails.application.routes.draw do
 
 # root to: '/dashboard'
 
+
   resources :companies do
     resources :contacts, except: [:new]
-    resources :jobs
+    resources :jobs, controller: "companies/jobs"
   end
 
   resources :jobs do
-    collection do
-      get :search, action: 'search_post', as: 'search_post'
-      get 'search/:q', action: 'search', as: 'search'
-    end
+    # collection do
+    #   get :search, action: 'search_post', as: 'search_post'
+    #   get 'search/:q', action: 'search', as: 'search'
+    # end
     resources :comments, only: [:create, :destroy]
   end
 

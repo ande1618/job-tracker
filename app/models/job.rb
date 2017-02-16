@@ -9,6 +9,6 @@ class Job < ActiveRecord::Base
   end
 
   def self.jobs_by_interest
-    limit(10).order(level_of_interest: :desc)
+    order(level_of_interest: :desc).group(:level_of_interest).count
   end
 end
